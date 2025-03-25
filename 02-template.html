@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <!-- Template -->
+
+    <div x-data="{name: 'Damar Kandi', age: 19, url: '<a href= \'https://www.youtube.com\'>Link Youtube</a>'}" class="container mx-auto w-1/2 text-center bg-blue-200 mt-14 p-10 rounded-xl shadow">
+        <!-- x-text -->
+        <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent drop-shadow-2xl">
+            Halo, <span x-text="name"></span>
+        </h1>
+        <p class="text-base font-bold bg-gradient-to-r from-red-500 to-purple-500 bg-clip-text text-transparent drop-shadow-2xl">
+            Umur <span x-text="age % 2 == 0 ? 'Genap' : 'Ganjil'"></span>
+        </p>
+        
+        <!-- x-html -->
+        <!-- Note: Berbahaya digunakan karena berpotensi terkena serangan XSS -->
+        <span x-html="url" class="text-sm font-bold bg-gradient-to-r from-red-500 to-purple-500 bg-clip-text text-transparent drop-shadow-2xl"></span>
+
+    </div>
+    
+    <div x-data="{open: false}" class="container mx-auto w-1/2 text-center rounded-xl p-10 mt-10 bg-green-200">
+
+        <!-- x-bind -->
+        <button @click="open = !open" x-bind:class="!open ? 'bg-green-500' : 'bg-slate-500'" x-text="open ? 'Tutup' : 'Buka'" class="text-sm bg-green-400 rounded-xl px-4 py-2 transition mb-3 hover:opacity-85">Buka</button>
+        
+        <div class="flex flex-col gap-4">
+
+            <!-- x-show -->
+            <div x-show="open" class="bg-blue-200 px-5 py-3 rounded-lg ">
+                <p class="text-sm">Lorem ipsum dolor sit amet.</p>
+            </div>
+    
+            <!-- x-if -->
+            <template x-if="open">
+                <div class="bg-blue-200 px-5 py-3 rounded-lg">
+                    <p class="text-sm">Lorem ipsum dolor sit amet.</p>
+                </div>
+            </template>
+    
+            <!-- x-transition -->
+            <div x-show="open" x-transition.duration.1000ms class="bg-blue-200 px-5 py-3 rounded-lg">
+                <p class="text-sm">Lorem ipsum dolor sit amet.</p>
+            </div>
+        </div>
+        
+    </div>
+
+</body>
+</html>
