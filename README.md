@@ -21,3 +21,7 @@ State (data JavaScript yang dipantau Alpine untuk mengetahui perubahannya) merup
 * x-if
 * x-transition
 * x-bind
+
+## Event
+
+* ![alt text](image.png)
