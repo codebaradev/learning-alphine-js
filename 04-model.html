@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <!-- x-model -->
+
+    <div x-data="{name: ''}" class="container transition flex flex-col gap-5 mx-auto w-1/2 p-3 mt-10 bg-blue-200 rounded-md">
+        <input type="text" x-model="name">
+
+        <span>
+            Name: <span x-text="name"></span>
+        </span>
+    </div>
+
+    <div x-data="{hobby: []}" class="container transition flex flex-col gap-5 mx-auto w-1/2 p-3 mt-10 bg-blue-200 rounded-md">
+        <label for="">
+            <input type="checkbox" x-model="hobby" value="Makan">
+            <span>Makan</span>
+        </label>
+        <label for="">
+            <input type="checkbox" x-model="hobby" value="Anime">
+            <span>Anime</span>
+        </label>
+        <label for="">
+            <input type="checkbox" x-model="hobby" value="'Manga">
+            <span>Manga</span>
+        </label>
+
+        <span>
+            Hobby: <span x-text="hobby"></span>
+        </span>
+    </div>
+</body>
+</html>
